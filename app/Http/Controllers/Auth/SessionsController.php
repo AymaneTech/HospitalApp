@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\LoginRequest;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class SessionsController extends Controller
 {
@@ -12,6 +13,16 @@ class SessionsController extends Controller
         return view("auth.login");
     }
     public function store(LoginRequest $request){
-        dd($request->all());
+        $validatedData = $request->only('email', 'password');;
+        $remember_me = $request->has("remember_me");
+
+        if(Auth::guard("doctor")->attempt($validatedData, $remember_me)){
+            return "good";
+        }else if(Auth::guard("patient")->attempt($validatedData, $remember_me)){
+            return "not good";
+        }else if (Auth::guard("admin")->attempt($validatedData, $remember_me)){
+            return "admin homie";
+        }
+        return back()->withErrors(["email" => "invalid credentials"]);
     }
 }

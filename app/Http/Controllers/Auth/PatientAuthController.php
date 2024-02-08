@@ -24,7 +24,7 @@ class PatientAuthController extends Controller
         $patient = Patient::create($validatedData);
         $imageName = $this->imageService->moveImage($request->file("user_avatar"));
         $patient->image()->create(["path" => $imageName]);
-
+        auth()->guard("patient")->login($patient);
         return redirect("/")->with("success", "Successfully");
     }
 }
