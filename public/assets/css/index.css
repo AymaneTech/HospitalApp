@@ -1,0 +1,32 @@
+html,
+body {
+    overflow-x: hidden;
+}
+
+body {
+    color: #013243;
+}
+
+.index-hero {
+    background-image: url('/assets/images/hero1.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100vw;
+    height: 80vh;
+}
+
+.main-button {
+    background: transparent linear-gradient(90deg, #1E0B9B 0%, #07CCEC 100%) 0% 0% no-repeat padding-box;
+    box-shadow: 3px 4px 15px #3FB0CEA6;
+    padding: 14px 15px 14px 30px;
+    width: 200px;
+    float: left;
+    color: #fff;
+    border-radius: 30px;
+    position: relative;
+    text-align: left;
+}
+
+.nav-list {
+    padding: 14px 15px 14px 30px;
+}

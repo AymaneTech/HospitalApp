@@ -18,6 +18,7 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+Route::get("/", [PatientController::class, "index"]);
 
 Route::get("/register", function () {
     return view('auth.register', [
@@ -36,7 +37,6 @@ Route::post("doctor-register", [DoctorAuthController::class, "store"]);
 Route::post("patient-register", [PatientAuthController::class, "store"]);
 
 Route::get("doctor-dashboard", [DoctorController::class, "index"]);
-Route::get("/", [PatientController::class, "index"]);
 
 
  // Todo : https://laravel.com/docs/10.x/passwords

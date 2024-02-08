@@ -2,11 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Speciality;
 use Illuminate\Http\Request;
 
 class PatientController extends Controller
 {
     public function index(){
-        return session("success");
+
+        return view ("patient.index", [
+            "specialities" => Speciality::all(),
+        ]);
     }
 }

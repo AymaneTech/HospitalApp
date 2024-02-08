@@ -1,21 +1,18 @@
 <header class="">
-    <nav class="container mx-auto flex justify-between">
+    <nav class="container mx-auto flex justify-between items-center">
         <div class="logo mt-2">
-            <h2 class="text-xl font-bold">Medi  <span class="text-[{{ $primaryColor }}]">Connect</span></h2>
+            <img src="/assets/images/logo.png" class="w-[150px] h-[60px]" alt="logo">
         </div>
-        <div class="flex gap-2 mt-2">
-            @auth
-                <a href="/posts/create" class="font-semibold text-white bg-[{{ $primaryColor }}] px-8 py-2 rounded-3xl">Share
-                    Post</a>
-                <form action="/logout" method="post">
-                    <button class="font-semibold text-[{{ $primaryColor }}] border border-[{{ $primaryColor }}] px-8 py-2 rounded-3xl">Logout
-                    </button>
-                    @csrf
-                </form>
-            @else
-                <a href="/login" class="font-semibold text-white bg-[{{ $primaryColor }}] px-8 py-2 rounded-3xl">login</a>
-                <a href="/register" class="font-semibold text-white bg-[{{ $primaryColor }}] px-8 py-2 rounded-3xl">Register</a>
-            @endauth
+        <div class="text-gray-900">
+            <ul class="nav-list hidden lg:flex gap-12 items-center font-semibold">
+                <li class="hover:text-blue-500"><a href="#">Home</a></li>
+                <li class="hover:text-blue-500"><a href="#">About</a></li>
+                <li class="hover:text-blue-500"><a href="#">Doctors</a></li>
+                <li class="main-button">
+                    <a href="#">Book
+                        Appointement</a>
+                </li>
+            </ul>
         </div>
     </nav>
 </header>
