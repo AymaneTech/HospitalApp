@@ -24,7 +24,7 @@ class DoctorAuthController extends Controller
         $doctor = Doctor::create($validatedData);
         $imageName = $this->imageService->moveImage($request->file("user_avatar"));
         $doctor->image()->create(["path" => $imageName]);
-
+        auth()->guard("doctor")->login($doctor);
         return redirect("/doctor-dashboard")->with("success", "Successfully");
     }
 }

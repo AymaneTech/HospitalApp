@@ -27,8 +27,18 @@ Route::get("/register", function () {
 Route::get("/login", [SessionsController::class, "create"]);
 Route::post("/login", [SessionsController::class, "store"]);
 
+Route::get("forget-password", [SessionsController::class, "forget_password"]);
+Route::post("forget-password", [SessionsController::class, "check"])->middleware('guest');
+
+
+
 Route::post("doctor-register", [DoctorAuthController::class, "store"]);
 Route::post("patient-register", [PatientAuthController::class, "store"]);
 
 Route::get("doctor-dashboard", [DoctorController::class, "index"]);
 Route::get("/", [PatientController::class, "index"]);
+
+
+ // Todo : https://laravel.com/docs/10.x/passwords
+// here is the documentation for reseting password
+// i'm so tired and need to sleep so until tomorrow
