@@ -20,7 +20,7 @@ class SessionsController extends Controller
             return "good";
         }else if(Auth::guard("patient")->attempt($validatedData, $remember_me)){
             return "not good";
-        }else if (Auth::guard("admin")->attempt($validatedData, $remember_me)){
+        }else if (Auth::guard("admin")->attempt($validatedData,$remember_me)){
             return "admin homie";
         }
         return back()->withErrors(["email" => "invalid credentials"]);

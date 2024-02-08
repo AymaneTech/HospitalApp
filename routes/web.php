@@ -32,3 +32,8 @@ Route::post("patient-register", [PatientAuthController::class, "store"]);
 
 Route::get("doctor-dashboard", [DoctorController::class, "index"]);
 Route::get("/", [PatientController::class, "index"]);
+
+
+ // Todo : https://laravel.com/docs/10.x/passwords
+// here is the documentation for reseting password
+// i'm so tired and need to sleep so until tomorrow
