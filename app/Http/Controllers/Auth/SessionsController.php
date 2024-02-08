@@ -29,5 +29,5 @@ class SessionsController extends Controller
         }
         return back()->withErrors(["email" => "invalid credentials"]);
     }
-    
+
 }
