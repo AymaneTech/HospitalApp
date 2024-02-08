@@ -27,6 +27,11 @@ Route::get("/register", function () {
 Route::get("/login", [SessionsController::class, "create"]);
 Route::post("/login", [SessionsController::class, "store"]);
 
+Route::get("forget-password", [SessionsController::class, "forget_password"]);
+Route::post("forget-password", [SessionsController::class, "check"])->middleware('guest');
+
+
+
 Route::post("doctor-register", [DoctorAuthController::class, "store"]);
 Route::post("patient-register", [PatientAuthController::class, "store"]);
 
