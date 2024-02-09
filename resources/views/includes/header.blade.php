@@ -7,7 +7,8 @@
             <ul class="nav-list hidden lg:flex gap-12 items-center font-semibold">
                 <li class="hover:text-blue-500"><a href="#">Home</a></li>
                 <li class="hover:text-blue-500"><a href="#">About</a></li>
-                <li class="hover:text-blue-500"><a href="#">Doctors</a></li>
+                <li class="hover:text-blue-500"><a href="#doctors">Doctors</a></li>
+                <li class="hover:text-blue-500"><a href="#speciaities">speciaities</a></li>
                 <li class="main-button">
                     <a href="#">Book
                         Appointement</a>

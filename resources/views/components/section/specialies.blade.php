@@ -1,6 +1,6 @@
 @props(['specialities'])
 
-<section class="specialities container mx-auto">
+<section id="speciaities" class="specialities container mx-auto">
     <div class="headings text-center text-4xl my-8">
         <p>We Offer Specialized</p>
         <h2 class="font-bold">Orthopedics To Meet Your Needs</h2>
