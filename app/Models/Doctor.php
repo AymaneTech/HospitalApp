@@ -13,4 +13,9 @@ class Doctor extends Person
         "password",
         "speciality_id",
     ];
+    protected $with = ["speciality"];
+
+    public function speciality(){
+        return $this->belongsTo(Speciality::class);
+    }
 }

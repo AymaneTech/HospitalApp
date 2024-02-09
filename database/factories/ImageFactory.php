@@ -17,7 +17,9 @@ class ImageFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            "path" => $this->faker->image(),
+            "imageable_type" => "App\Models\Speciality",
+            "imageable_id" => "1"
         ];
     }
 }

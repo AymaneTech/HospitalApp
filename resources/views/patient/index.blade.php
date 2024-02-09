@@ -1,39 +1,56 @@
 <x-layout>
     <main>
-        <section class="index-hero text-[#013243]">
-            <div class="contet w-[50vw] ml-32 pt-32 flex flex-col gap-4">
-                <h1 class="text-6xl font-bold ">Get better Care for your <span>Health</span></h1>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga, tempore aut odit repudiandae quisquam
-                    corporis nobis odio molestias! Velit neque excepturi ex quis officiis eligendi. Explicabo
-                    dignissimos
-                    deserunt laudantium quibusdam.</p>
-                <button class="main-button">Book Appointement</button>
+        <x-section.hero />
+        <x-section.about />
+        <x-section.specialies :specialities="$specialities" />
+
+        <section class="slider-container">
+            <div class="headings text-center text-4xl my-8">
+                <p>We Offer expert doctors</p>
+                <h2 class="font-bold">Orthopedics To Meet Your Needs</h2>
             </div>
+            <div class="doctors-cards-slider">
+                <div class="doctors-cards grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 justify-around gap-8">
+                    @foreach ($doctors as $doctor)
+                        <div class="card-item">
+                            <img src"" alt="">
+                            <h3 class="text-2xl font-bold">{{ $doctor->name }}</h3>
+                            <p>
+                                {{ $doctor->speciality->name }}
+                            </p>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+            <button class="prev-btn">&#10094;</button>
+            <button class="next-btn">&#10095;</button>
         </section>
-        <section class="about-us flex justify-between gap-4 mx-16 mt-32">
-            <div class="image w-[50vw]">
-                <img src="/assets/images/illlustration.png" alt="">
-            </div>
-            <div class="text flex flex-col gap-2 w-[50vw]">
-                <strong class="font-bold text text-[#1E0B9B]">About Us</strong>
-                <h2 class="text-4xl font-bold">We Are Specialize in Medical Diagnositics</h2>
-                <p>Nulla lacinia sapien a diam ullamcorper, sed congue leo vulputate. Phasellus et ante ultrices,
-                    sagittis purus vitae, sagittis quam. Quisque urna lectus, auctor quis tristique tincidunt, semper
-                    vel lectus. Mauris eget eleifend massa. Praesent ex felis, laoreet nec tellus in, laoreet commodo
-                    ipsum.</p>
-                <ul class="advices">
-                    <Li>
-                        <x-icon name="left-arrow" />
-                        hello from the list
-                    </Li>
-                    <Li>
-                        hello from the list
-                    </Li>
-                    <Li>
-                        hello from the list
-                    </Li>
-                </ul>
-            </div>
-        </section>
+        <script>
+            const slider = document.querySelector('.doctors-cards-slider');
+            const prevBtn = document.querySelector('.prev-btn');
+            const nextBtn = document.querySelector('.next-btn');
+
+            let slideIndex = 0;
+
+            function showSlide(index) {
+                const slides = document.querySelectorAll('.doctors-cards-slider .doctors-cards');
+                if (index < 0) {
+                    slideIndex = slides.length - 1;
+                } else if (index >= slides.length) {
+                    slideIndex = 0;
+                }
+                slider.style.transform = `translateX(${-slideIndex * 100}%)`;
+            }
+
+            prevBtn.addEventListener('click', () => {
+                showSlide(slideIndex - 1);
+            });
+
+            nextBtn.addEventListener('click', () => {
+                showSlide(slideIndex + 1);
+            });
+
+            showSlide(slideIndex);
+        </script>
     </main>
 </x-layout>
