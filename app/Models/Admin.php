@@ -7,7 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 use App\Models\Person;
 
 
-class Admin extends Model
+class Admin extends Person
 {
-    
 }

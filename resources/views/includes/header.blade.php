@@ -13,6 +13,17 @@
                     <a href="#">Book
                         Appointement</a>
                 </li>
+                <li class="hover:cursor-pointer">
+                    <x-icon name="search" />
+                </li>
+                <li>
+                    <a href="">
+                        <img class="w-10 h-10 rounded-full	"
+                            src="/storage/{{ auth('patient')->user()->image->path }}"alt="">
+                    </a>
+                </li>
+
+
             </ul>
         </div>
     </nav>

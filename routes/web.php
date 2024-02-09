@@ -18,6 +18,7 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
 Route::get("/", [PatientController::class, "index"]);
 
 Route::get("/register", function () {
@@ -38,6 +39,9 @@ Route::post("patient-register", [PatientAuthController::class, "store"]);
 
 Route::get("doctor-dashboard", [DoctorController::class, "index"]);
 
+Route::get("/test", function () {
+    return view('test');
+});
 
  // Todo : https://laravel.com/docs/10.x/passwords
 // here is the documentation for reseting password
