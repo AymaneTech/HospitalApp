@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Auth\DoctorAuthController;
 use App\Http\Controllers\Auth\PatientAuthController;
 use App\Http\Controllers\Auth\SessionsController;
@@ -32,8 +33,6 @@ Route::post("/login", [SessionsController::class, "store"]);
 Route::get("forget-password", [SessionsController::class, "forget_password"]);
 Route::post("forget-password", [SessionsController::class, "check"])->middleware('guest');
 
-
-
 Route::post("doctor-register", [DoctorAuthController::class, "store"]);
 Route::post("patient-register", [PatientAuthController::class, "store"]);
 
@@ -43,6 +42,11 @@ Route::get("/test", function () {
     return view('test');
 });
 
- // Todo : https://laravel.com/docs/10.x/passwords
-// here is the documentation for reseting password
-// i'm so tired and need to sleep so until tomorrow
+Route::get("/dashboard",[ AdminController::class, "index"]);
+
+/*****
+ * *
+ *  Todo : https://laravel.com/docs/10.x/passwords
+ * here is the documentation for reseting password
+ * i'm so tired and need to sleep so until tomorrow
+ * ***/
