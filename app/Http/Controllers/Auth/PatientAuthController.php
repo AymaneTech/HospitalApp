@@ -11,7 +11,8 @@ use Illuminate\Http\Request;
 class PatientAuthController extends Controller
 {
     private $imageService;
-    public function __construct(ImageService $imageService){
+    public function __construct(ImageService $imageService)
+    {
         $this->imageService = $imageService;
     }
 

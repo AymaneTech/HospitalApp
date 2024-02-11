@@ -19,6 +19,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get("/", [PatientController::class, "index"]);
+
 Route::get("/register", function () {
     return view('auth.register', [
         "specialities" => Speciality::all(),
@@ -36,8 +38,10 @@ Route::post("doctor-register", [DoctorAuthController::class, "store"]);
 Route::post("patient-register", [PatientAuthController::class, "store"]);
 
 Route::get("doctor-dashboard", [DoctorController::class, "index"]);
-Route::get("/", [PatientController::class, "index"]);
 
+Route::get("/test", function () {
+    return view('test');
+});
 
  // Todo : https://laravel.com/docs/10.x/passwords
 // here is the documentation for reseting password

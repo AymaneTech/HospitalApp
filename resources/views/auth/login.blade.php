@@ -18,7 +18,7 @@
                 @csrf
                 <x-input type="email" name="email" />
                 <x-input type="password" name="password" />
-
+                
                 <div class="checkbox-group ">
                     <input value="1" type="checkbox" name="remember_me" id="remember_me">
                     <label for="checkbox">Remember Me</label>

@@ -1,0 +1,87 @@
+html,
+body {
+    overflow-x: hidden;
+}
+
+body {
+    color: #013243;
+}
+
+.index-hero {
+    background-image: url('/assets/images/hero1.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100vw;
+    height: 80vh;
+}
+
+.main-button {
+    background: transparent linear-gradient(90deg, #1E0B9B 0%, #07CCEC 100%) 0% 0% no-repeat padding-box;
+    box-shadow: 3px 4px 15px #3FB0CEA6;
+    padding: 14px 15px 14px 30px;
+    width: 200px;
+    float: left;
+    color: #fff;
+    border-radius: 30px;
+    position: relative;
+    text-align: left;
+}
+
+.nav-list {
+    padding: 14px 15px 14px 30px;
+}
+
+.advices {
+    margin-top: 8px;
+}
+
+.advices li {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 18px;
+    margin-left: -4px;
+    margin-top: 2px;
+    padding: 4px 0;
+}
+
+.specialities-cards .card-item {
+    background-image: linear-gradient(to right top, #b7b5e3, #bcbfe6, #c3c8e9, #cad1ec, #d3daee, #dbe0f0, #e2e5f1, #e9ebf3, #eeeff5, #f3f3f7, #f8f8fa, #fcfcfc);
+    padding: 24px;
+    border-radius: 8px;
+    box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+    transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+    max-height: 350px;
+    width: 300px;
+}
+
+.specialities-cards .card-item:hover {
+    background-color: rgba(255, 255, 255, 0.5);
+    transform: translateY(-10px);
+}
+
+.card-btn {
+    display: inline-block;
+    vertical-align: middle;
+    background-color: #4B6CA7;
+    color: white;
+    padding: 8px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+    margin-top: 8px;
+}
+
+.card-btn:hover {
+    background-color: #34508A;
+}
+
+.doctor-card {
+    transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.doctor-card:hover {
+    background-color: rgba(255, 255, 255, 0.5);
+    transform: translateY(-10px);
+}
