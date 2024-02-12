@@ -13,6 +13,8 @@ return new class extends Migration
     {
         Schema::create('consultations', function (Blueprint $table) {
             $table->id();
+            $table->text("observation");
+//            Todo: should make a joined table fot medicine and consultation
             $table->timestamps();
         });
     }
