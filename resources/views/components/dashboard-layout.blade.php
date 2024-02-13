@@ -18,13 +18,25 @@
 </head>
 
 <body {{ $attributes->merge(['class' => '']) }}">
+    <div class="min-h-screen bg-gray-50/50">
+        @include('includes.admin-sidebar')
+        <div class="p-4 xl:ml-80">
+            @include('includes.admin-header')
+            <div class="mt-12">
 
-    {{ $slot }}
+                {{ $slot }}
+
+
+            </div>
+            @include('includes.admin-footer')
+        </div>
+    </div>
+
 
 
     <x-flash />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.js"></script>
+    <script src="https://cdn.ckeditor.com/ckeditor5/41.0.0/classic/ckeditor.js"></script>
 </body>
 
 </html>
-<script src="https://cdn.ckeditor.com/ckeditor5/41.0.0/classic/ckeditor.js"></script>

@@ -5,7 +5,9 @@ use App\Http\Controllers\Auth\DoctorAuthController;
 use App\Http\Controllers\Auth\PatientAuthController;
 use App\Http\Controllers\Auth\SessionsController;
 use App\Http\Controllers\DoctorController;
+use App\Http\Controllers\MedicineController;
 use App\Http\Controllers\PatientController;
+use App\Http\Controllers\SpecialityController;
 use App\Models\Speciality;
 use Illuminate\Support\Facades\Route;
 
@@ -42,7 +44,18 @@ Route::get("/test", function () {
     return view('test');
 });
 
-Route::get("/dashboard",[ AdminController::class, "index"]);
+Route::get("/dashboard", [AdminController::class, "index"]);
+
+//Route::post("speciality/store", [SpecialityController::class, "store"]);
+Route::resource("speciality", SpecialityController::class)->only(["store"]);
+Route::delete("speciality-delete/{speciality:name}", [SpecialityController::class, "destroy"])->name("speciality-delete");
+Route::patch("/speciality-update", [SpecialityController::class, "update"])->name("speciality-update");
+
+
+Route::get("medicines", [MedicineController::class, "index"])->name("medicine-index");
+Route::delete("medicines", [MedicineController::class, "destroy"])->name("medicine-delete");
+Route::patch("medicines", [MedicineController::class, "update"])->name("medicine-update");
+
 
 /*****
  * *

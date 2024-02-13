@@ -25,10 +25,8 @@ class SessionsController extends Controller
         } else if (Auth::guard("patient")->attempt($validatedData, $remember_me)) {
             return "not good";
         } else if (Auth::guard("admin")->attempt($validatedData, $remember_me)) {
-            dd("here");
             return redirect("/dashboard");
         }
-        dd($request);
         return back()->withErrors(["email" => "invalid credentials"]);
     }
 }

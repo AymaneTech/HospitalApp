@@ -1,18 +1,10 @@
 <x-dashboard-layout>
-    <div class="min-h-screen bg-gray-50/50">
-        @include('includes.admin-sidebar')
-        <div class="p-4 xl:ml-80">
-            @include('includes.admin-header')
-            <div class="mt-12">
-  
+
                 <x-section.admin-statistics />
 
-                <x-section.admin-table />
+                <x-section.admin-specialities :specialities="$specialities"/>
 
-            </div>
-            @include('includes.admin-footer')
-        </div>
-    </div>
-    <x-modals.create-speciality />
-
+                <x-modals.create-speciality />
+            
+    <script src="{{ asset('assets/js/update-modal.js') }}"></script>
 </x-dashboard-layout>
