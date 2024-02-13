@@ -46,15 +46,16 @@ Route::get("/test", function () {
 
 Route::get("/dashboard", [AdminController::class, "index"]);
 
-//Route::post("speciality/store", [SpecialityController::class, "store"]);
-Route::resource("speciality", SpecialityController::class)->only(["store"]);
-Route::delete("speciality-delete/{speciality:name}", [SpecialityController::class, "destroy"])->name("speciality-delete");
+Route::get("/specialities", [SpecialityController::class, "index"]);
+Route::post("speciality/store", [SpecialityController::class, "store"])->name("speciality-store");
 Route::patch("/speciality-update", [SpecialityController::class, "update"])->name("speciality-update");
+Route::delete("speciality-delete/{speciality:name}", [SpecialityController::class, "destroy"])->name("speciality-delete");
 
 
 Route::get("medicines", [MedicineController::class, "index"])->name("medicine-index");
-Route::delete("medicines", [MedicineController::class, "destroy"])->name("medicine-delete");
-Route::patch("medicines", [MedicineController::class, "update"])->name("medicine-update");
+Route::post("medicines", [MedicineController::class, "store"])->name("medicine-store");
+Route::patch("medicines/update", [MedicineController::class, "update"])->name("medicine-update");
+Route::delete("medicines/delete{medicine:name}", [MedicineController::class, "destroy"])->name("medicine-delete");
 
 
 /*****

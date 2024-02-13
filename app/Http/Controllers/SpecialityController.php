@@ -17,18 +17,24 @@ class SpecialityController extends Controller
         $this->imageService = $imageService;
     }
 
+    public function index()
+    {
+        return view("admin.index", [
+            "specialities" => Speciality::paginate(5),
+        ]);
+    }
+
     public function store(CreateSpecialityRequest $request)
     {
         $validatedData = $request->validated();
         $speciality = Speciality::create($validatedData);
-
-        if ($request->hasFile("image")) {
+        if ($request->has("image")) {
             $imageName = $this->imageService->moveImage($request->file("image"));
             $speciality->image()->create(["path" => $imageName]);
         }
-
-        return redirect("/dashboard")->with("success", "success");
+        return redirect("/specialities")->with("success", "success");
     }
+
     public function update(EditSpecialityRequest $request)
     {
         $validatedData = $request->validated();
@@ -38,12 +44,12 @@ class SpecialityController extends Controller
         $speciality->name = $validatedData["name"];
         $speciality->description = $validatedData["description"];
         $speciality->save();
-        return redirect("dashboard")->with("success", "updated with success");
+        return redirect("/specialities")->with("success", "updated with success");
     }
 
     public function destroy(Speciality $speciality)
     {
         $speciality->delete();
-        return redirect("/dashboard")->with("success", "deleted successfully");
+        return redirect("/specialities")->with("success", "deleted successfully");
     }
 }

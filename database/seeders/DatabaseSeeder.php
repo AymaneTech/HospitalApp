@@ -18,13 +18,13 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        Speciality::factory(10)
-            ->has(Medicine::factory()
-                ->count(2))
-            ->create();
-
-        Doctor::factory(10)->create();
-
+//        Speciality::factory(10)
+//            ->has(Medicine::factory()
+//                ->count(2))
+//            ->create();
+//
+//        Doctor::factory(10)->create();
+//
 
         Admin::factory()->create([
             'name' => 'Aymane Admin',

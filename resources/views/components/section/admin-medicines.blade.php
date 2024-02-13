@@ -17,7 +17,7 @@
                     <strong>{{ count($medicines) }}</strong> medicines
                 </p>
             </div>
-            <button data-modal-target="Create-medicine" data-modal-toggle="Create-medicine"
+            <button data-modal-target="create-medicine" data-modal-toggle="create-medicine"
                 class="middle none font-sans font-bold center transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-xs py-3 rounded-lg bg-gradient-to-tr from-blue-600 to-blue-400 text-white shadow-md shadow-blue-500/20 hover:shadow-lg hover:shadow-blue-500/40 active:opacity-[0.85]  flex items-center gap-4 px-4 capitalize"
                 type="button">
                 Create medicine
@@ -29,6 +29,10 @@
                     <tr>
                         <th class="border-b border-blue-gray-50 py-3 px-6 text-left">
                             <p class="block antialiased font-sans text-[11px] font-medium uppercase text-blue-gray-400">
+                             Image</p>
+                        </th>
+                        <th class="border-b border-blue-gray-50 py-3 px-6 text-left">
+                            <p class="block antialiased font-sans text-[11px] font-medium uppercase text-blue-gray-400">
                                 Name</p>
                         </th>
                         <th class="border-b border-blue-gray-50 py-3 px-6 text-left">
@@ -37,13 +41,23 @@
                         </th>
                         <th class="border-b border-blue-gray-50 py-3 px-6 text-left">
                             <p class="block antialiased font-sans text-[11px] font-medium uppercase text-blue-gray-400">
-                                N° Medicine</p>
+                                Price</p>
+                        </th>
+                        <th class="border-b border-blue-gray-50 py-3 px-6 text-left">
+                            <p class="block antialiased font-sans text-[11px] font-medium uppercase text-blue-gray-400">
+                             Actions</p>
                         </th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach ($medicines as $medicine)
                         <tr>
+                            <td class="py-3 px-5 border-b border-blue-gray-50">
+                                <div class="flex items-center gap-4">
+                                    <img class="w-24 h-24" src="{{ asset('storage/' . $medicine->image->path) }}"
+                                        alt="">
+                                </div>
+                            </td>
                             <td class="py-3 px-5 border-b border-blue-gray-50">
                                 <div class="flex items-center gap-4">
                                     <p
@@ -56,21 +70,19 @@
                                     {{ $medicine->description }}</p>
                             </td>
                             <td class="py-3 px-5 border-b border-blue-gray-50">
-                                <div class="w-10/12">
-                                    <p class="antialiased font-sans mb-1 block text-xs font-medium text-blue-gray-600">
-                                        8</p>
-                                    <div
-                                        class="flex flex-start bg-blue-gray-50 overflow-hidden w-full rounded-sm font-sans text-xs font-medium h-1">
-                                        <div class="flex justify-center items-center h-full bg-gradient-to-tr from-blue-600 to-blue-400 text-white"
-                                            style="width: {{ $medicine->medicine / 100 }};"></div>
-                                    </div>
+                                <div class="flex items-center gap-4">
+                                    <p
+                                        class="block antialiased font-sans text-sm leading-normal text-blue-gray-900 font-bold">
+                                        {{ $medicine->price }}</p>
                                 </div>
                             </td>
                             <td class="py-3 px-5 border-b border-blue-gray-50 flex items-center gap-2">
-                                <button data-medicines-name="{{ $medicine->name }}"
-                                    data-medicines-id="{{ $medicine->id }}"
-                                    data-modal-target="edit-modal-medicine" data-modal-toggle="edit-modal-medicine"
-                                    data-medicines-description="{{ $medicine->description }}"
+                                <button data-medicine-name="{{ $medicine->name }}"
+                                    data-medicine-price="{{ $medicine->price }}"
+                                    data-medicine-id="{{ $medicine->id }}" data-modal-target="edit-modal-medicine"
+                                    data-modal-toggle="edit-modal-medicine"
+                                    data-medicine-description="{{ $medicine->description }}"
+                                    data-medicine-image="{{ asset("storage/". $medicine->image->path) }}"
                                     class=" bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-full"
                                     type="button">
                                     <x-icon name="edit" />

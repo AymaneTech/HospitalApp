@@ -8,7 +8,8 @@
     <div class="specialities-cards grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 justify-around gap-8 ">
         @foreach ($specialities as $speciality)
             <div class="card-item">
-                <img src="/assets/images/illlustration.png" alt="">
+{{--                /assets/images/illlustration.png--}}
+                <img class="h-48 w-56 mx-auto mb-2" src="{{ asset("storage/". $speciality->image->path) }}" alt="">
                 <h3 class="text-2xl font-bold">{{ $speciality->name }}</h3>
                 <p>
                     {{ $speciality->description }}
