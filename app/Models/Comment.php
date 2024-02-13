@@ -11,7 +11,7 @@ class Comment extends Model
 
     protected $fillable = [
         "content",
-        "doctor-id",
+        "doctor_id",
         "patient_id",
     ];
 

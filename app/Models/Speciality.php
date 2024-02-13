@@ -14,7 +14,7 @@ class Speciality extends Model
         "name",
         "description"
     ];
-    protected $with = ["image"];
+    protected $with = ["image", "medicines"];
 
     public function medicines()
     {
