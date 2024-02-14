@@ -24,8 +24,6 @@ use Illuminate\Support\Facades\Route;
 
 Route::get("/", [PatientController::class, "index"]);
 
-Route::get("doctor-profile/{doctor:name}", [DoctorController::class, "show"])->name("doctor-profile");
-Route::get("doctors/{speciality:name}", [DoctorController::class, "showBySpeciality"])->name("filter-doctors");
 
 Route::get("/test", function () {
     return view('test');
@@ -33,19 +31,14 @@ Route::get("/test", function () {
 
 Route::get("/dashboard", [AdminController::class, "index"]);
 
-
-
-
-Route::get("medicines", [MedicineController::class, "index"])->name("medicine-index");
-Route::post("medicines", [MedicineController::class, "store"])->name("medicine-store");
-Route::patch("medicines/update", [MedicineController::class, "update"])->name("medicine-update");
-Route::delete("medicines/delete{medicine:name}", [MedicineController::class, "destroy"])->name("medicine-delete");
-
 Route::get("appointment", [AppointementController::class, "index"]);
-
 Route::post("/create-comment", [CommentController::class, "store"])->name("create-comment");
-
 Route::post("/favorite/create", [FavoriteController::class, "store"])->name("create-favorite");
+Route::get("doctor-profile/{doctor:name}", [DoctorController::class, "show"])->name("doctor-profile");
+Route::get("doctors/{speciality:name}", [DoctorController::class, "showBySpeciality"])->name("filter-doctors");
+
+
+Route::get("/doctor/dashboard", [DoctorController::class, "index"])->name("doctor-dashboard");
 
 // this is routes are clean
 Route::middleware(["auth", "is_admin"])->group(function () {
@@ -53,6 +46,13 @@ Route::middleware(["auth", "is_admin"])->group(function () {
     Route::post("speciality/store", [SpecialityController::class, "store"])->name("speciality-store");
     Route::patch("/speciality-update", [SpecialityController::class, "update"])->name("speciality-update");
     Route::delete("speciality-delete/{speciality:name}", [SpecialityController::class, "destroy"])->name("speciality-delete");
+});
+
+Route::middleware(["is_doctor_or_admin"])->group(function (){
+    Route::get("medicines", [MedicineController::class, "index"])->name("medicine-index");
+    Route::post("medicines", [MedicineController::class, "store"])->name("medicine-store");
+    Route::patch("medicines/update", [MedicineController::class, "update"])->name("medicine-update");
+    Route::delete("medicines/delete{medicine:name}", [MedicineController::class, "destroy"])->name("medicine-delete");
 });
 
 require_once __DIR__ . "/auth.php";

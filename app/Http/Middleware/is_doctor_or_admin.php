@@ -15,6 +15,12 @@ class is_doctor_or_admin
      */
     public function handle(Request $request, Closure $next): Response
     {
+        /*if (!auth()->guard('doctor')->user() && !auth()->guard('admin')->user()) {
+            return response()->json(['error' => 'Unauthorized'], 403);
+        }*/
+//        if(! auth("admin")->user() || ! auth("doctor")->user()){
+//            dd(auth("doctor")->user());
+//        }
         return $next($request);
     }
 }

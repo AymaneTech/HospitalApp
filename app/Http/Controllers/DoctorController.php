@@ -11,7 +11,7 @@ class DoctorController extends Controller
 {
     public function index()
     {
-        return session("success");
+        return view("doctor.index");
     }
 
     public function show(Doctor $doctor)

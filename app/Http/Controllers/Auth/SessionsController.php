@@ -21,11 +21,11 @@ class SessionsController extends Controller
         $remember_me = $request->has("remember_me");
 
         if (Auth::guard("doctor")->attempt($validatedData, $remember_me)) {
-            return "good";
+            return redirect("/")->with("success", "logged as doctor successfully");
         } else if (Auth::guard("patient")->attempt($validatedData, $remember_me)) {
-            return "not good";
+            return redirect("/")->with("success", "logged as patient successfully");
         } else if (Auth::guard("admin")->attempt($validatedData, $remember_me)) {
-            return redirect("/dashboard");
+            return redirect("/dashboard")->with("success", "logged as admin successfully ");
         }
         return back()->withErrors(["email" => "invalid credentials"]);
     }
