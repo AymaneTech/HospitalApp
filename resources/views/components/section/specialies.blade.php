@@ -14,7 +14,7 @@
                 <p>
                     {{ $speciality->description }}
                 </p>
-                <a href="" class="card-btn">Learn more</a>
+                <a href="/doctors/{{ $speciality->name }}" class="card-btn">Learn more</a>
             </div>
         @endforeach
     </div>

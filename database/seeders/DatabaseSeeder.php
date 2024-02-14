@@ -29,7 +29,7 @@ class DatabaseSeeder extends Seeder
         Admin::factory()->create([
             'name' => 'Aymane Admin',
             'email' => 'admin@gmail.com',
-            'password' => Hash::make("123"),
+            'password' => "123",
         ]);
     }
 }

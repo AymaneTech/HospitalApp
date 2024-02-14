@@ -68,11 +68,11 @@
                             </td>
                             <td class="py-3 px-5 border-b border-blue-gray-50 flex items-center gap-2">
                                 <button data-specialities-name="{{ $speciality->name }}"
-                                    data-specialities-id="{{ $speciality->id }}"
-                                    data-modal-target="edit-modal-speciality" data-modal-toggle="edit-modal-speciality"
-                                    data-specialities-description="{{ $speciality->description }}"
-                                    class=" bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-full"
-                                    type="button">
+                                        data-specialities-id="{{ $speciality->id }}"
+                                        data-modal-target="edit-modal-speciality" data-modal-toggle="edit-modal-speciality"
+                                        data-specialities-description="{{ $speciality->description }}"
+                                        class=" bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-full"
+                                        type="button">
                                     <x-icon name="edit" />
                                 </button>
 

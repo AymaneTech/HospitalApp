@@ -5,11 +5,12 @@
                 <img class="w-[400px] h-[80vh]" src="{{asset("storage/". $doctor->image->path) }}" alt="">
             </div>
             <div class="flex flex-col gap-8 w-[50vw]">
-                <div>
+                <div class="flex justify-between items-center">
                     <h3 class="text-2xl font-bold">{{ $doctor->name }}</h3>
-                    <form method="post" action="favorite/create">
+                    <form method="post" action="/favorite/create">
                         @csrf
                         <input type="hidden" name="doctor_id" value="{{ $doctor->id }}">
+                        <button class="card-btn">Add To Favorite</button>
                     </form>
                 </div>
                 <div class="flex gap-8 items-center">

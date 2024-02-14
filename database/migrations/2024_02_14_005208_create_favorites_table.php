@@ -13,6 +13,10 @@ return new class extends Migration
     {
         Schema::create('favorites', function (Blueprint $table) {
             $table->id();
+            $table->foreignId("patient_id")
+                ->constrained("patients");
+            $table->foreignId("doctor_id")
+                ->constrained("doctors");
             $table->timestamps();
         });
     }

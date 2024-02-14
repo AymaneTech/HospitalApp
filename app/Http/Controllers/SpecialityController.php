@@ -20,7 +20,7 @@ class SpecialityController extends Controller
     public function index()
     {
         return view("admin.index", [
-            "specialities" => Speciality::paginate(5),
+            "specialities" => Speciality::with("medicines")->paginate(5),
         ]);
     }
 
