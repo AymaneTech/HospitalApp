@@ -9,6 +9,7 @@ class Comment extends Model
 {
     use HasFactory;
 
+    protected $with = ["patient", "doctor"];
     protected $fillable = [
         "content",
         "doctor_id",
@@ -17,11 +18,11 @@ class Comment extends Model
 
     public function doctor()
     {
-        return $this->blongsTo(Doctor::class);
+        return $this->belongsTo(Doctor::class);
     }
 
     public function patient()
     {
-        return $this->blongsTo(Patient::class);
+        return $this->belongsTo(Patient::class);
     }
 }
