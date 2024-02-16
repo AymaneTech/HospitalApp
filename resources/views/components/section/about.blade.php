@@ -1,4 +1,4 @@
- <section class="about-us flex justify-between gap-4 mx-16 mt-32">
+ <section id="about" class="about-us flex justify-between gap-4 mx-16 mt-32">
      <div class="image w-[50vw]">
          <img src="/assets/images/illlustration.png" alt="">
      </div>

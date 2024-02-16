@@ -13,13 +13,15 @@
                     @foreach ($doctors as $doctor)
                         <div class="doctor-card flex flex-col gap-12 shadow-xl hover:shadow-2xl rounded-xl p-4">
                             <div class="w-[350px]">
-                                <img src="/assets/images/illlustration.png" alt="">
+                                <img class="h-64 w-full mb-4 " src="{{ asset("storage/". $doctor->image->path) }}" alt="">
                                 <h3 class="text-2xl font-bold hover:text-blue-700"><a
                                         href="">{{ $doctor->name }}</a></h3>
                                 <p>
-                                    {{ $doctor->speciality->name }}
+                                    <span class="font-bold">Speciality: </span>{{ $doctor->speciality->name }}
                                 </p>
-                                <span>working since {{ $doctor->created_at->diffForHumans() }}</span>
+                                <p>working since {{ $doctor->created_at->diffForHumans() }}</p>
+
+                                <a href="/doctor-profile/{{ $doctor->name }}" class="card-btn">Go To Profile</a>
                             </div>
                         </div>
                     @endforeach

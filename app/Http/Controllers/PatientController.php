@@ -13,7 +13,7 @@ class PatientController extends Controller
 
         return view("patient.index", [
             "specialities" => Speciality::take(8)->get(),
-            "doctors" => Doctor::take(8)->get(),
+            "doctors" => Doctor::all(),
         ]);
     }
 }
