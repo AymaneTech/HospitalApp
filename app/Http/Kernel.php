@@ -2,6 +2,7 @@
 
 namespace App\Http;
 
+use App\Http\Middleware\can_access;
 use App\Http\Middleware\Is_admin;
 use App\Http\Middleware\is_doctor;
 use App\Http\Middleware\is_doctor_or_admin;
@@ -70,5 +71,6 @@ class Kernel extends HttpKernel
 
         'is_admin' => Is_admin::class,
         'is_doctor_or_admin' => is_doctor_or_admin::class,
+        'can_access' => can_access::class,
     ];
 }

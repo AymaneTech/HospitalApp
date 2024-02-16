@@ -13,13 +13,13 @@
                     <a href="#">Book
                         Appointement</a>
                 </li>
-                <li class="hover:cursor-pointer">
-                    <x-icon name="search"/>
+                <li id="favorite-btn" class="hover:cursor-pointer">
+                    <x-icon name="heart"/>
                 </li>
                 <li>
                     <a href="">
                         <img class="w-10 h-10 rounded-full	"
-                             src="/storage/{{ auth('patient')->user()->image->path }}" alt="">
+                             src="/storage/{{ auth('patient')->user()->image->path ?? false}}" alt="">
                     </a>
                 </li>
             </ul>
