@@ -16,10 +16,10 @@ return new class extends Migration {
                 ->constrained("doctors");
             $table->foreignId("patient_id")
                 ->constrained("patients");
-            $table->enum("shift", ["shift_1", "shift_2", "shift_3", "shift_4"]);
-            $table->enum("status", ["pending", "cancelled", "completed"]);
-            $table->boolean("is_urgent");
-            $table->date("booked_at");
+            $table->date("date");
+            $table->string("time")->default(null);
+            $table->string("status")->default("pending");
+            $table->boolean("is_urgent")->default(false);
             $table->timestamps();
         });
     }

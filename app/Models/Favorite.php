@@ -10,15 +10,15 @@ class Favorite extends Model
     use HasFactory;
 
     protected $fillable = ["patient_id", "doctor_id"];
-    protected $with = ["doctors"];
+    protected $with = ["doctor"];
 
     public function patient()
     {
         return $this->belongsTo(Patient::class);
     }
 
-    public function doctors()
+    public function doctor()
     {
-        return $this->hasMany(Doctor::class);
+        return $this->belongsTo(Doctor::class);
     }
 }
