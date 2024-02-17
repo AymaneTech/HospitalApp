@@ -13,10 +13,10 @@ class Appointement extends Model
     protected $fillable = [
         "doctor_id",
         "patient_id",
-        "shift",
+        "time",
         "status",
         "is_urgent",
-        "booked_at",
+        "date"
     ];
     protected $casts = [
         "shift" => Time::class,

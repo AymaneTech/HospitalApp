@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\AppointmentRequest;
 use App\Models\Appointement;
-use Illuminate\Http\Request;
+use Carbon\Carbon;
 
 class AppointementController extends Controller
 {
@@ -15,7 +15,8 @@ class AppointementController extends Controller
             "patient_id" => auth("patient")->id(),
             "doctor_id" => $validatedData["doctor_id"],
             "time" => $validatedData["time"],
+            "date" => Carbon::today(),
         ]);
-        return $appointment;
+       return back()->with("success", "you booked your shift with success!");
     }
 }

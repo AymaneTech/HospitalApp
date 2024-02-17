@@ -17,9 +17,9 @@ return new class extends Migration {
             $table->foreignId("patient_id")
                 ->constrained("patients");
             $table->date("date");
-            $table->enum("time", ["8:00-9:00", "9:00-11:00", "11:00-12:00", "13:00-14:00", "14:00-15:00", "15:00-16:00", "16:00-17:00", "17:00-18:00"]);
-            $table->enum("status", ["pending", "cancelled", "completed"]);
-            $table->boolean("is_urgent");
+            $table->string("time")->default(null);
+            $table->string("status")->default("pending");
+            $table->boolean("is_urgent")->default(false);
             $table->timestamps();
         });
     }

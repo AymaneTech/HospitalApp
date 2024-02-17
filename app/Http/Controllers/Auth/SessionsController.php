@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\LoginRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facadres\Password;
 
 class SessionsController extends Controller
@@ -31,6 +32,7 @@ class SessionsController extends Controller
     }
     public function destroy(){
         auth()->logout();
+        Session::flush();
         return redirect("/login");
     }
 }

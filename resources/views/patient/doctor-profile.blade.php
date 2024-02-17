@@ -1,5 +1,15 @@
 @php
     $is_favorite = $doctor->favorites->where("patient_id", "=", auth("patient")->id())->first();
+//    foreach(App\Enums\Time::map() as $shift){
+//        foreach ($booked_shifts as $booked_shift){
+//            if($shift === $booked_shift->time){
+//                dump($shift);
+//            }
+//        }
+//    }
+//
+//dd();
+
 @endphp
 <x-layout>
     <main class="">
@@ -77,7 +87,7 @@
             </div>
         </section>
     </main>
-    <x-modals.appoitment :doctor="$doctor"/>
+    <x-modals.appoitment :doctor_id="$doctor->id" :booked_shifts="$booked_shifts"/>
 
 </x-layout>
 <script>

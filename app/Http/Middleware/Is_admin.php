@@ -16,7 +16,7 @@ class Is_admin
     public function handle(Request $request, Closure $next): Response
     {
         if (auth("doctor")->user() || auth("patient")->user()) {
-            abort(403);
+            dd(auth("admin")->user());
         }
         return $next($request);
 
