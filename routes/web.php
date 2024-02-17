@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AppointementController;
+use App\Http\Controllers\Auth\DoctorAuthController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\DoctorController;
 use App\Http\Controllers\FavoriteController;
@@ -21,41 +22,38 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get("/", [PatientController::class, "index"]);
+Route::get("/", function (){
+    return "hello";
+});
 
 
 Route::get("/test", function () {
     return view('test');
 });
-
+Route::get("/doctor-dashboard", [DoctorController::class, "index"])
+    ->name("doctor-dashboard")
 Route::get("/dashboard", [AdminController::class, "index"]);
 
-Route::post("/appointment/Create", [AppointementController::class, "create"])->name("appointment-store");
-Route::post("/create-comment", [CommentController::class, "store"])->name("create-comment");
-Route::post("/favorite/create", [FavoriteController::class, "store"])->name("create-favorite");
-Route::delete("/favorite/delete/{favorite}", [FavoriteController::class, "destroy"])->name("delete-favorite");
-Route::get("doctor-profile/{doctor:name}", [DoctorController::class, "show"])->name("doctor-profile");
-Route::get("doctors/{speciality:name}", [DoctorController::class, "showBySpeciality"])->name("filter-doctors");
+Route::post("/create-comment", [CommentController::class, "store"])
+    ->name("create-comment");
+Route::post("/favorite/create", [FavoriteController::class, "store"])
+    ->name("create-favorite");
+Route::delete("/favorite/delete/{favorite}", [FavoriteController::class, "destroy"])
+    ->name("delete-favorite");
+Route::get("doctor-profile/{doctor:name}", [DoctorController::class, "show"])
+    ->name("doctor-profile");
+Route::get("doctors/{speciality:name}", [DoctorController::class, "showBySpeciality"])
+    ->name("filter-doctors");
+
+Route::post("/appointment/Create", [AppointementController::class, "create"])
+    ->name("appointment-store");
+Route::get("/appointment/", [AppointementController::class, "index"])->name("appointment-index");
 
 
-Route::get("/doctor-dashboard", [DoctorController::class, "index"])->name("doctor-dashboard");
-
-// this is routes are clean
-Route::middleware(["is_admin"])->group(function () {
-    Route::get("/specialities", [SpecialityController::class, "index"]);
-    Route::post("speciality/store", [SpecialityController::class, "store"])->name("speciality-store");
-    Route::patch("/speciality-update", [SpecialityController::class, "update"])->name("speciality-update");
-    Route::delete("speciality-delete/{speciality:name}", [SpecialityController::class, "destroy"])->name("speciality-delete");
-});
-
-Route::middleware("auth")->group(function (){
-    Route::get("medicines", [MedicineController::class, "index"])->name("medicine-index");
-    Route::post("medicines", [MedicineController::class, "store"])->name("medicine-store");
-    Route::patch("medicines/update", [MedicineController::class, "update"])->name("medicine-update");
-    Route::delete("medicines/delete{medicine:name}", [MedicineController::class, "destroy"])->name("medicine-delete");
-});
 
 require_once __DIR__ . "/auth.php";
+require_once __DIR__ . "/specialities.php";
+require_once __DIR__ . "/medicines.php";
 /*****
  * *
  *  Todo : https://laravel.com/docs/10.x/passwords

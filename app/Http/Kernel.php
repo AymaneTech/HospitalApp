@@ -72,5 +72,6 @@ class Kernel extends HttpKernel
         'is_admin' => Is_admin::class,
         'is_doctor_or_admin' => is_doctor_or_admin::class,
         'can_access' => can_access::class,
+        "is_doctor" => is_doctor::class,
     ];
 }

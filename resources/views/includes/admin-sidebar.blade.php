@@ -20,10 +20,10 @@
         <ul class="mb-4 flex flex-col gap-1">
             @if(auth("doctor")->user())
                 <li>
-                    <a href="{{ route('medicine-index') }}"
+                    <a href="{{ route('doctor-edit') }}"
                        class="middle none font-sans font-bold center transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-xs py-3 rounded-lg text-white hover:bg-white/10 active:bg-white/30 w-full flex items-center gap-4 px-4 capitalize"
                        type="a">
-                        <x-icon name="medicine"/>
+                        <x-icon name="profile"/>
                         <p
                             class="block antialiased font-sans text-base leading-relaxed text-inherit font-medium capitalize">
                             edit profile</p>
@@ -35,7 +35,6 @@
                    class="middle none font-sans font-bold center transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-xs py-3 rounded-lg text-white hover:bg-white/10 active:bg-white/30 w-full flex items-center gap-4 px-4 capitalize"
                    type="a">
                     <x-icon name="dashboard"/>
-
                     <p
                         class="block antialiased font-sans text-base leading-relaxed text-inherit font-medium capitalize">
                         Dashboard</p>
@@ -52,15 +51,27 @@
                 </a>
             </li>
             <li>
-                <a href="/specialities"
+                <a href="{{ route('appointment-index') }}"
                    class="middle none font-sans font-bold center transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-xs py-3 rounded-lg text-white hover:bg-white/10 active:bg-white/30 w-full flex items-center gap-4 px-4 capitalize"
-                   type="button">
-                    <x-icon name="specialities"/>
+                   type="a">
+                    <x-icon name="medicine"/>
                     <p
                         class="block antialiased font-sans text-base leading-relaxed text-inherit font-medium capitalize">
-                        Specialities</p>
+                        Appointments</p>
                 </a>
             </li>
+            @if(auth("admin"))
+                <li>
+                    <a href="/specialities"
+                       class="middle none font-sans font-bold center transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-xs py-3 rounded-lg text-white hover:bg-white/10 active:bg-white/30 w-full flex items-center gap-4 px-4 capitalize"
+                       type="button">
+                        <x-icon name="specialities"/>
+                        <p
+                            class="block antialiased font-sans text-base leading-relaxed text-inherit font-medium capitalize">
+                            Specialities</p>
+                    </a>
+                </li>
+            @endif
         </ul>
         <ul class="mb-4 flex flex-col gap-1">
             <li class="mx-3.5 mt-4 mb-2">

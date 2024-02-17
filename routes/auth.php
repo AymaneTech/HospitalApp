@@ -21,3 +21,5 @@ Route::post("forget-password", [SessionsController::class, "check"])->middleware
 Route::post("doctor-register", [DoctorAuthController::class, "store"]);
 Route::post("patient-register", [PatientAuthController::class, "store"]);
 
+Route::get("edit-doctor-profile", [DoctorAuthController::class, "edit"])->name("doctor-edit");
+Route::patch("edit-doctor-profile{doctor}", [DoctorAuthController::class, "update"])->name("save-doctor");
